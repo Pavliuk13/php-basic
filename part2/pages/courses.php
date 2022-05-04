@@ -70,132 +70,40 @@ include('../server.php')
     </div>
 
     <div class="courses">
+
+            <?php
+                $db = mysqli_connect('localhost', 'root', '', 'courseanta');
+                if (isset($_GET['posts'])):
+                    $sql = "SELECT * FROM `posts`";
+                    if($result = $db->query($sql)):
+                        foreach ($result as $row):
+
+            ?>
         <div class="item">
-            <div class="header">
-                <div class="category">C#</div>
-                <div class="price">10$</div>
-            </div>
-            <div class="image">
-                <img src="../img/c-1.png" alt="C#">
-            </div>
-            <h1>Основи програмування на мові С#</h1>
-            <p>Quisque vel mi eget tellus vehicula convallis. Sed ullamcorper ipsum metus, ac dapibus arcu fringilla sit amet. Nam sit amet justo quis nunc eleifend blandit. Phasellus quis libero condimentum, ornare ligula eget, fermentum nulla. Duis faucibus ac sapien nec lacinia. Sed gravida tincidunt sem eget interdum. Suspendisse potenti...</p>
-            <div class="action">
-                <button><a href="./course.php">ДЕТАЛЬНІШЕ</a></button>
-            </div>
+                <div class="header">
+                    <div class="category">
+                        <?php
+                        $id = $row['categoty_id'];
+                        $sql2 = "SELECT * FROM `categories` WHERE id = $id";
+                        $result2 = $db->query($sql2);
+                        foreach ($result2 as $item)
+                            echo $item['name'];
+                        ?>
+                    </div>
+                    <div class="price"><?php echo $row['price'];?>$</div>
+                </div>
+                <div class="image">
+                    <img src="<?php echo $row['path'];?>" alt="C#">
+                </div>
+                <h1><?php echo $row['title'];?></h1>
+                <p><?php echo $row['short_description'];?></p>
+                <div class="action">
+                    <button><a href="./course.php">ДЕТАЛЬНІШЕ</a></button>
+                </div>
         </div>
-        <div class="item">
-            <div class="header">
-                <div class="category">Python</div>
-                <div class="price">5$</div>
-            </div>
-            <div class="image">
-                <img src="../img/c-2.png" alt="Python">
-            </div>
-            <h1>Основи програмування на мові Python</h1>
-            <p>Quisque vel mi eget tellus vehicula convallis. Sed ullamcorper ipsum metus, ac dapibus arcu fringilla sit amet. Nam sit amet justo quis nunc eleifend blandit. Phasellus quis libero condimentum, ornare ligula eget, fermentum nulla. Duis faucibus ac sapien nec lacinia. Sed gravida tincidunt sem eget interdum. Suspendisse potenti...</p>
-            <div class="action">
-                <button><a href="#">ДЕТАЛЬНІШЕ</a></button>
-            </div>
-        </div>
-        <div class="item">
-            <div class="header">
-                <div class="category">C++</div>
-                <div class="price">15$</div>
-            </div>
-            <div class="image">
-                <img src="../img/c-3.png" alt="C++">
-            </div>
-            <h1>Основи програмування на мові С++</h1>
-            <p>Quisque vel mi eget tellus vehicula convallis. Sed ullamcorper ipsum metus, ac dapibus arcu fringilla sit amet. Nam sit amet justo quis nunc eleifend blandit. Phasellus quis libero condimentum, ornare ligula eget, fermentum nulla. Duis faucibus ac sapien nec lacinia. Sed gravida tincidunt sem eget interdum. Suspendisse potenti...</p>
-            <div class="action">
-                <button><a href="#">ДЕТАЛЬНІШЕ</a></button>
-            </div>
-        </div>
-        <div class="item">
-            <div class="header">
-                <div class="category">Java</div>
-                <div class="price">10$</div>
-            </div>
-            <div class="image">
-                <img src="../img/c-4.png" alt="Java">
-            </div>
-            <h1>Основи програмування на мові Java</h1>
-            <p>Quisque vel mi eget tellus vehicula convallis. Sed ullamcorper ipsum metus, ac dapibus arcu fringilla sit amet. Nam sit amet justo quis nunc eleifend blandit. Phasellus quis libero condimentum, ornare ligula eget, fermentum nulla. Duis faucibus ac sapien nec lacinia. Sed gravida tincidunt sem eget interdum. Suspendisse potenti...</p>
-            <div class="action">
-                <button><a href="#">ДЕТАЛЬНІШЕ</a></button>
-            </div>
-        </div>
-        <div class="item">
-            <div class="header">
-                <div class="category">Kotlin</div>
-                <div class="price">5$</div>
-            </div>
-            <div class="image">
-                <img src="../img/c-5.png" alt="C#">
-            </div>
-            <h1>Основи програмування на мові Kotlin</h1>
-            <p>Quisque vel mi eget tellus vehicula convallis. Sed ullamcorper ipsum metus, ac dapibus arcu fringilla sit amet. Nam sit amet justo quis nunc eleifend blandit. Phasellus quis libero condimentum, ornare ligula eget, fermentum nulla. Duis faucibus ac sapien nec lacinia. Sed gravida tincidunt sem eget interdum. Suspendisse potenti...</p>
-            <div class="action">
-                <button><a href="#">ДЕТАЛЬНІШЕ</a></button>
-            </div>
-        </div>
-        <div class="item">
-            <div class="header">
-                <div class="category">C#</div>
-                <div class="price">15$</div>
-            </div>
-            <div class="image">
-                <img src="../img/c-6.png" alt="C#">
-            </div>
-            <h1>Налаштування і робота з ASP.NET Core MVC</h1>
-            <p>Quisque vel mi eget tellus vehicula convallis. Sed ullamcorper ipsum metus, ac dapibus arcu fringilla sit amet. Nam sit amet justo quis nunc eleifend blandit. Phasellus quis libero condimentum, ornare ligula eget, fermentum nulla. Duis faucibus ac sapien nec lacinia. Sed gravida tincidunt sem eget interdum. Suspendisse potenti...</p>
-            <div class="action">
-                <button><a href="#">ДЕТАЛЬНІШЕ</a></button>
-            </div>
-        </div>
-        <div class="item">
-            <div class="header">
-                <div class="category">Kotlin</div>
-                <div class="price">10$</div>
-            </div>
-            <div class="image">
-                <img src="../img/c-7.png" alt="Kotlin">
-            </div>
-            <h1>Розробка додатків для Android з Kotlin</h1>
-            <p>Quisque vel mi eget tellus vehicula convallis. Sed ullamcorper ipsum metus, ac dapibus arcu fringilla sit amet. Nam sit amet justo quis nunc eleifend blandit. Phasellus quis libero condimentum, ornare ligula eget, fermentum nulla. Duis faucibus ac sapien nec lacinia. Sed gravida tincidunt sem eget interdum. Suspendisse potenti...</p>
-            <div class="action">
-                <button><a href="#">ДЕТАЛЬНІШЕ</a></button>
-            </div>
-        </div>
-        <div class="item">
-            <div class="header">
-                <div class="category">Python</div>
-                <div class="price">5$</div>
-            </div>
-            <div class="image">
-                <img src="../img/c-8.png" alt="Python">
-            </div>
-            <h1>Python + Django: з нуля до комерційних додатків</h1>
-            <p>Quisque vel mi eget tellus vehicula convallis. Sed ullamcorper ipsum metus, ac dapibus arcu fringilla sit amet. Nam sit amet justo quis nunc eleifend blandit. Phasellus quis libero condimentum, ornare ligula eget, fermentum nulla. Duis faucibus ac sapien nec lacinia. Sed gravida tincidunt sem eget interdum. Suspendisse potenti...</p>
-            <div class="action">
-                <button><a href="#">ДЕТАЛЬНІШЕ</a></button>
-            </div>
-        </div>
-        <div class="item">
-            <div class="header">
-                <div class="category">C++</div>
-                <div class="price">15$</div>
-            </div>
-            <div class="image">
-                <img src="../img/c-9.png" alt="C++">
-            </div>
-            <h1>Швидкий старт з Qt C++ у Visual Studio</h1>
-            <p>Quisque vel mi eget tellus vehicula convallis. Sed ullamcorper ipsum metus, ac dapibus arcu fringilla sit amet. Nam sit amet justo quis nunc eleifend blandit. Phasellus quis libero condimentum, ornare ligula eget, fermentum nulla. Duis faucibus ac sapien nec lacinia. Sed gravida tincidunt sem eget interdum. Suspendisse potenti...</p>
-            <div class="action">
-                <button><a href="#">ДЕТАЛЬНІШЕ</a></button>
-            </div>
-        </div>
+            <?php endforeach;?>
+            <?php endif;?>
+            <?php endif;?>
     </div>
     <div class="pointers">
         <img src="../img/left.png" alt="left">

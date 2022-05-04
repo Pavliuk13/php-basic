@@ -24,7 +24,7 @@
                 <ul class="header-list">
                     <li><a href="../index.php" class="header-link">ГОЛОВНА</a></li>
                     <li><a href="./about.php" class="header-link">ПРО НАС</a></li>
-                    <li><a href="./courses.php" class="header-link">НАШІ КУРСИ</a></li>
+                    <li><a href="./courses.php?posts" class="header-link">НАШІ КУРСИ</a></li>
                     <li><a href="
                     <?php if (isset($_SESSION['username'])) : ?>
                     <?php echo "./cart.php"; ?>

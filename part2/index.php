@@ -32,7 +32,7 @@ if (isset($_GET['logout'])) {
                 <ul class="header-list">
                     <li><a href="./index.php" class="header-link">ГОЛОВНА</a></li>
                     <li><a href="./pages/about.php" class="header-link">ПРО НАС</a></li>
-                    <li><a href="./pages/courses.php" class="header-link">НАШІ КУРСИ</a></li>
+                    <li><a href="./pages/courses.php?posts" class="header-link">НАШІ КУРСИ</a></li>
                     <li><a href="
                     <?php if (isset($_SESSION['username'])) : ?>
                     <?php echo "./pages/cart.php"; ?>

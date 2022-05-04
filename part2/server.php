@@ -5,7 +5,6 @@ $pib = "";
 $username = "";
 $email	  = "";
 $errors   = array();
-
 $db = mysqli_connect('localhost', 'root', '', 'courseanta');
 
 if (isset($_POST['reg_user'])) {
@@ -101,6 +100,13 @@ if (isset($_POST['login_user'])) {
             array_push($errors, "Дані не відповідають жодному запису в базі користувачів");
         }
     }
+}
+
+// posts
+if (isset($_GET['posts'])){
+    $query = "SELECT * FROM posts";
+    $result = mysqli_query($db, $query)->fetch_assoc();
+
 }
 
 ?>
